@@ -1,0 +1,26 @@
+body{
+    /* display: flex; */
+    justify-content: center; 
+     align-items: center; 
+    height: 100vh;
+    color: rgb(62, 26, 104);
+    background-color:antiquewhite;
+    padding: 10px;
+}
+
+ul{
+    text-align:center;
+    font-size:larger;
+    list-style-type: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+form{
+    text-align:center;
+    font-size:larger;;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+li{
+    padding: 10px;
+}

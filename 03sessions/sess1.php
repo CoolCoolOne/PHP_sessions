@@ -15,12 +15,13 @@
     define('ADMIN_PASS','123');
     if(!empty($_POST['pass_form'])){
         if(($_POST['pass_form']) === ADMIN_PASS){
-            // $_SESSION['admin_pass']=
-            // header
-            echo 'Вы успешно авторизовались!';
+            $_SESSION['usr'] = 'AdminTro';
+            $_SESSION['result_mes'] = 'Вы успешно авторизовались!';
         } else {
-            echo 'Неверный логин!';
+            $_SESSION['result_mes'] = 'Неверный логин!';
         }
+        header("Location: ./sess1.php");
+        die;
     }
 
     $url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
@@ -29,8 +30,7 @@
     <div>
         <ul>
             <li><a href="./sess1.php">сессия1</a></li>
-            <li><a href="./sess2.php">сессия2</a></li>
-            <li><a href="./secret.php">Скрытое</a></li>
+            <li><a href="./secret.php">Скрытое (пароль 123)</a></li>
             <br>
             <li><a href="
             <?php 
@@ -39,6 +39,13 @@
             ?>
             "> текущаяя (перезапрос) </a></li>
             <li>сейчас мы на стр: <br> <?php echo $url; ?> </li>
+            <li> <?php 
+            if (isset($_SESSION['result_mes'])){
+                echo '<hr> <br>';
+                echo $_SESSION['result_mes'];
+                unset($_SESSION['result_mes']);
+            }
+            ?> </li>
         </ul>
     </div>
 
